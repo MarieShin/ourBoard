@@ -6,7 +6,6 @@
 <%
 	/** 현재 페이지의 경로를 얻는다. */
 	String nowUrl = request.getRequestURI();
-	out.println(nowUrl);
 
 	/** 로그인을 해야만 사용할 수 있는 페이지의 목록의 배열 */
 	String[] memberOnlyPage = { "/member/edit.jsp", "/member/edit_ok.jsp", "/member/logout.jsp",

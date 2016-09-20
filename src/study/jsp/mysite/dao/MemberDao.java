@@ -1,6 +1,6 @@
-package kr.or.kosta.ob.dao;
+package study.jsp.mysite.dao;
 
-import kr.or.kosta.ob.model.Member;
+import study.jsp.mysite.model.Member;
 
 public interface MemberDao {
 	

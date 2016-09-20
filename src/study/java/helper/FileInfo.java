@@ -1,4 +1,4 @@
-package kr.or.kosta.ob.helper;
+package study.java.helper;
 
 public class FileInfo {
 	private String fieldName;

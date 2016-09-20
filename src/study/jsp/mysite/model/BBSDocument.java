@@ -1,4 +1,4 @@
-package kr.or.kosta.ob.model;
+package study.jsp.mysite.model;
 
 public class BBSDocument {
 	private int id; // 게시물 일련번호

@@ -1,4 +1,4 @@
-package kr.or.kosta.ob.helper;
+package study.java.helper;
 
 import java.util.Properties;
 

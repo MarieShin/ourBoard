@@ -1,4 +1,4 @@
-package kr.or.kosta.ob.helper;
+package study.java.helper;
 
 import java.io.File;
 import java.io.IOException;

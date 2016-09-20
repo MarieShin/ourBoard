@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 덧글 데이터 Mapper -->
+<mapper namespace="BBSCommentMapper">
+
+	<resultMap id="comment" type="BBSComment">
+		<result property="id" column="id" />
+		<result property="bbsDocumentId" column="bbs_document_id" />
+		<result property="memberId" column="member_id" />
+		<result property="writerName" column="writer_name" />
+		<result property="writerPw" column="writer_pw" />
+		<result property="email" column="email" />
+		<result property="content" column="content" />
+		<result property="ipAddress" column="ip_address" />
+		<result property="regDate" column="reg_date" />
+		<result property="editDate" column="edit_date" />
+	</resultMap>
+	
+	<!-- 덧글 쓰기 기능을 구현한다. -->
+	<insert id="doWrite" parameterType="BBSComment" useGeneratedKeys="true" 
+		keyProperty="id">
+		INSERT INTO bbs_comment (
+			bbs_document_id, member_id, writer_pw, writer_name, email, 
+			content, ip_address, reg_date, edit_date
+		) VALUES (
+			#{bbsDocumentId},
+
+			<choose>
+    			<when test="memberId == 0">
+					null, password(#{writerPw}),
+				</when>
+				<otherwise>
+					#{memberId}, #{writerPw},
+				</otherwise>
+			</choose> 
+			
+			#{writerName}, #{email}, #{content}, #{ipAddress}, now(), now()
+		);
+	</insert>
+	
+	<!-- 덧글 하나를 읽는다. -->
+	<select id="getCommentItem" parameterType="int" resultMap="comment">
+		 <!-- 비밀번호를 사용하지 않으므로, 생략한다. -->
+		 SELECT id, bbs_document_id, member_id, writer_name, email, 
+		 		content, ip_address, reg_date, edit_date
+		 FROM bbs_comment
+		 WHERE id=#{id} 
+	</select>
+	
+</mapper>
+

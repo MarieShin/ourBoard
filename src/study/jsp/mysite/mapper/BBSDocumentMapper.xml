@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 게시물 데이터 Mapper -->
+<mapper namespace="BBSDocumentMapper">
+
+	<resultMap id="document" type="BBSDocument">
+		<result property="id" column="id" />
+		<result property="memberId" column="member_id" />
+		<result property="writerName" column="writer_name" />
+		<result property="writerPw" column="writer_pw" />
+		<result property="email" column="email" />
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="ipAddress" column="ip_address" />
+		<result property="hit" column="hit" />
+		<result property="regDate" column="reg_date" />
+		<result property="editDate" column="edit_date" />
+	</resultMap>
+
+	<!-- 글쓰기 기능을 구현한다. -->
+	<insert id="doWrite" parameterType="BBSDocument"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO bbs_document (
+		member_id, writer_pw, writer_name, email,
+		subject,
+		content, ip_address, hit, reg_date, edit_date
+		) VALUES (
+
+		<choose>
+			<when test="memberId == 0">
+				null, password(#{writerPw}),
+			</when>
+			<otherwise>
+				#{memberId}, #{writerPw},
+			</otherwise>
+		</choose>
+
+		#{writerName}, #{email}, #{subject},
+		#{content}, #{ipAddress}, #{hit},
+		now(), now()
+		);
+	</insert>
+
+	<!-- 게시물 하나를 읽는다. -->
+	<select id="getDocumentItem" parameterType="int" resultMap="document">
+		<!-- 비밀번호를 사용하지 않으므로, 생략한다. -->
+		SELECT id, member_id, writer_name, email, subject, content,
+		ip_address, hit,
+		reg_date, edit_date
+		FROM bbs_document
+		WHERE id=#{id}
+	</select>
+
+	<!-- 이전 글을 조회한다. -->
+	<select id="getPrevItem" parameterType="int" resultMap="document">
+		SELECT
+		id, writer_name, email, subject, content,
+		ip_address, hit, reg_date,
+		edit_date
+		FROM bbs_document
+		WHERE id &lt; #{id}
+		ORDER BY id DESC
+		LIMIT 0,
+		1
+	</select>
+
+	<!-- 다음 글을 조회한다. -->
+	<select id="getNextItem" parameterType="int" resultMap="document">
+		SELECT
+		id, writer_name, email, subject, content,
+		ip_address, hit, reg_date,
+		edit_date
+		FROM bbs_document
+		WHERE id &gt; #{id}
+		ORDER BY id ASC
+		LIMIT 0, 1
+	</select>
+
+	<!-- 조회수를 1 증가시킨다. -->
+	<select id="doUpdateHit" parameterType="int">
+		UPDATE bbs_document SET
+		hit=hit+1 WHERE id=#{id}
+	</select>
+
+	<!-- 게시물 목록을 조회한다. -->
+	<select id="getDocumentList" parameterType="BBSDocument"
+		resultMap="document">
+		SELECT id, writer_name, email, subject, content,
+		ip_address, hit,
+		reg_date, edit_date
+		FROM bbs_document
+
+		<where>
+			<if test="keyword != null">
+				subject LIKE CONCAT('%', #{keyword}, '%')
+				OR
+				content LIKE
+				CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
+
+		ORDER BY id DESC
+
+		LIMIT #{limitStart}, #{listCount}
+	</select>
+
+	<!-- 게시물의 수를 조회한다. 검색조건이 있다면 검색 결과의 수를 조회한다. -->
+	<select id="getCount" parameterType="BBSDocument" resultType="int">
+		SELECT count(id) FROM bbs_document
+
+		<where>
+			<if test="keyword != null">
+				subject LIKE CONCAT('%', #{keyword}, '%')
+				OR
+				content LIKE
+				CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
+	</select>
+
+	<!-- 게시물의 비밀번호를 체크한다. -->
+	<select id="checkPassword" parameterType="BBSDocument"
+		resultType="int">
+		SELECT count(id) FROM bbs_document
+		WHERE id=#{id} AND
+		writer_pw=password(#{writerPw})
+	</select>
+
+	<!-- 게시물을 삭제한다. -->
+	<delete id="doDelete" parameterType="int">
+		DELETE FROM bbs_document
+		WHERE id=#{id}
+	</delete>
+	
+	<!-- 게시물을 수정한다. 일련번호가 일치하는 항목을 update -->
+	<delete id="doEdit" parameterType="BBSDocument">
+		UPDATE bbs_document SET
+			writer_name=#{writerName},
+			email=#{email},
+			subject=#{subject},
+			content=#{content},
+			ip_address=#{ipAddress},
+			edit_date=now()
+		WHERE id=#{id}
+	</delete>
+	
+	<!-- 특정 회원이 작성한 댓글에 대하여 일괄적으로 회원번호를 null로 변경한다. -->
+	<update id="outMember" parameterType="int">
+		UPDATE bbs_document SET member_id = null
+		WHERE member_id=#{memberId}
+	</update>
+</mapper>
+

@@ -7,7 +7,7 @@
 		<p class="pull-right">
 			<a href="#">Back to top</a>
 		</p>
-		<p>&copy; 2015 itpaper.co.kr</p>
+		<p>2016 10st kosta.co.kr</p>
 	</footer>
 </div>
 <!-- // 공통 하단 영역 -->

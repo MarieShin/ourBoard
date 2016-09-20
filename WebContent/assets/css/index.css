@@ -1,0 +1,39 @@
+.margin_right{
+    margin-right: 20px;
+}
+#title {
+    color: #ffffff;
+    font-size: 100px;
+}
+#top{
+	font-size: 180px;
+	font-family: Bauhaus 93;
+}
+#p_1 {
+    padding-top: 100px;
+    color: #f8f8f8;
+    font-family: 돋움체;
+    font-size: 20px;
+}
+
+.label_basic{
+    color: #f8f8f8;
+    font-size: medium;
+}
+.label_title{
+    color: #2e6da4;
+    font-size: large;
+    font-size: 80px;
+}
+.label_small{
+    font-size: medium;
+}
+span {
+    font-size: 50px;
+    color: cornflowerblue;
+}
+
+.margin_height {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}

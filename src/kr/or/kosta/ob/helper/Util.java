@@ -1,4 +1,4 @@
-package study.java.helper;
+package kr.or.kosta.ob.helper;
 
 /**
  * 기본적인 공통 기능들을 묶어 놓은 클래스

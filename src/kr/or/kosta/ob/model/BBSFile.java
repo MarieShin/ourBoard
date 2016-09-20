@@ -1,4 +1,4 @@
-package study.jsp.mysite.model;
+package kr.or.kosta.ob.model;
 
 public class BBSFile {
 	private int id;					// 파일 일련번호

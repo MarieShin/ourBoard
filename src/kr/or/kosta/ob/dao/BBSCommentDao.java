@@ -1,8 +1,8 @@
-package study.jsp.mysite.dao;
+package kr.or.kosta.ob.dao;
 
 import java.util.List;
 
-import study.jsp.mysite.model.BBSComment;
+import kr.or.kosta.ob.model.BBSComment;
 
 /** 특정 게시물에 대한 덧글 관리 기능 정의 */
 public interface BBSCommentDao {

@@ -1,4 +1,4 @@
-package study.java.helper;
+package kr.or.kosta.ob.helper;
 
 public class PageHelper {
 	/***** GET파라미터로 처리할 값 *****/

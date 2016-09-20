@@ -1,8 +1,8 @@
-package study.jsp.mysite.dao;
+package kr.or.kosta.ob.dao;
 
 import java.util.List;
 
-import study.jsp.mysite.model.BBSFile;
+import kr.or.kosta.ob.model.BBSFile;
 
 /** 특정 게시물에 대한 파일 관리 기능 정의 */
 public interface BBSFileDao {

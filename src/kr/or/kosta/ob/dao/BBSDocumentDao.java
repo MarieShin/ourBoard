@@ -1,8 +1,8 @@
-package study.jsp.mysite.dao;
+package kr.or.kosta.ob.dao;
 
 import java.util.List;
 
-import study.jsp.mysite.model.BBSDocument;
+import kr.or.kosta.ob.model.BBSDocument;
 
 /** 게시판 글 관리 기능 정의 */
 public interface BBSDocumentDao {

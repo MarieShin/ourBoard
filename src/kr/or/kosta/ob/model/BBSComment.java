@@ -1,4 +1,4 @@
-package study.jsp.mysite.model;
+package kr.or.kosta.ob.model;
 
 public class BBSComment {
 	private int id;					// 덧글 일련번호

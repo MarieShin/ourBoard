@@ -1,4 +1,4 @@
-package study.jsp.mysite.model;
+package kr.or.kosta.ob.model;
 
 /** 회원 테이블을 표현하는 Java Beans */
 public class Member {

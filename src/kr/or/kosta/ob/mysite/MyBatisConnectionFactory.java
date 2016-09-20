@@ -1,4 +1,4 @@
-package study.jsp.mysite;
+package kr.or.kosta.ob.mysite;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

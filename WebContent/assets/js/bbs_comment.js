@@ -11,6 +11,21 @@ $(function() {
 		return false;
 	}
 	
+	// 댓글 목록 조회 --> 페이지가 열리면서 실행된다.
+	var comment_url = $("#comment_list").data('list');
+	
+	$.get(comment_url, function(json) {
+		var rt = json.rt;
+		if (rt != "SUCCESS") {
+			alert(rt);
+			return false;
+		}
+		
+		var comment_item = $("#tmpl_comment_item").tmpl(json.item);
+		
+		$('#comment_list').append(comment_item);
+	});
+	
 	//------------------------------------------------
 	// 덧글 저장 폼의 submit 이벤트
 	//------------------------------------------------

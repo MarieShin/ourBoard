@@ -274,9 +274,10 @@
 		</form>
 		
 		<!-- 덧글 리스트 -->
-		<ul class="media-list" id="comment_list">
+		<ul class="media-list" id="comment_list"
+		data-list="ajax/get_comment_list.jsp?document_id=<%=document_id%>">
 		</ul>
-		
+
 	</div>
 	<%@ include file="/inc/footer.jsp" %>
 	

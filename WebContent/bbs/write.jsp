@@ -15,7 +15,7 @@
 	<div class="container">
 
 		<h1 class="page-header">
-			JSP 게시판
+			Board
 			<small>- 새 글 쓰기</small>
 		</h1>
 

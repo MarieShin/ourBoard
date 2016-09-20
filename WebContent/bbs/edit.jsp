@@ -85,7 +85,7 @@
 	<div class="container">
 
 		<h1 class="page-header">
-			JSP 게시판 <small>- 글 수정하기</small>
+			Board <small>- 글 수정하기</small>
 		</h1>
 
 		<form class="form-horizontal" role="form" method="post"

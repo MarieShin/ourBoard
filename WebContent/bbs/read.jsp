@@ -121,7 +121,7 @@
 
 	<%@ include file="/inc/topbar.jsp" %>
 	<div class="container">
-		<h1 class="page-header">JSP 게시판 <small>- 글 읽기</small></h1>
+		<h1 class="page-header">Board <small>- 글 읽기</small></h1>
 		
 		<!-- 제목, 작성자, 작성일시, 조회수 -->
 		<div class="alert alert-info" role="alert">

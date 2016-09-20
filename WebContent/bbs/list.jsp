@@ -73,7 +73,7 @@
 <body>
 	<%@ include file="/inc/topbar.jsp"%>
 	<div class="container">
-		<h1 class="page-header">JSP 게시판</h1>
+		<h1 class="page-header">Board</h1>
 
 		<!-- 글 목록 시작 -->
 		<div class="table-responsive">

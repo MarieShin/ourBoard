@@ -28,7 +28,7 @@
 			</button>
 			<!-- // 반응형 메뉴 버튼 -->
 			<!-- 로고 -->
-			<a class="navbar-brand" href="<%=homeDir%>/index.jsp">My Site</a>
+			<a class="navbar-brand" href="<%=homeDir%>/index.jsp">My Page</a>
 			<!-- // 로고 -->
 		</div>
 		<!-- // 로고 영역 -->
@@ -36,7 +36,7 @@
 		<div class="navbar-collapse collapse">
 			<!-- 사이트 메뉴 -->
 			<ul class="nav navbar-nav">
-				<li><a href="<%=homeDir%>/bbs/list.jsp">게시판</a></li>
+				<li><a href="<%=homeDir%>/bbs/list.jsp">Board</a></li>
 			</ul>
 			<!--// 사이트 메뉴 -->
 

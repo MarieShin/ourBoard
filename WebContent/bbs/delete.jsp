@@ -70,7 +70,7 @@
 	<%@ include file="/inc/topbar.jsp"%>
 	<div class="container">
 		<h1>
-			JSP 게시판 <small>- 글 삭제하기</small>
+			Board <small>- 글 삭제하기</small>
 		</h1>
 		<%
 			if (my_article == false) {

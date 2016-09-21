@@ -71,8 +71,22 @@
 
 	<!-- 게시물을 삭제한다. -->
 	<delete id="doDelete" parameterType="int">
-		DELETE FROM bbs_comment WHERE id=#{id}
+		DELETE FROM bbs_comment
+		WHERE id=#{id}
 	</delete>
+
+	<!-- 특정 게시물에 소속된 댓글을 일괄적으로 삭제한다. -->
+	<delete id="doDeleteAll" parameterType="int">
+		DELETE FROM bbs_comment
+		WHERE bbs_document_id=#{bbsDocumentId}
+	</delete>
+
+	<!-- 특정 회원이 작성한 댓글에 대하여 일괄적으로 회원번호를 null로 변경한다. -->
+	<update id="outMember" parameterType="int">
+		UPDATE bbs_comment SET
+		member_id = null
+		WHERE member_id=#{memberId}
+	</update>
 
 </mapper>
 

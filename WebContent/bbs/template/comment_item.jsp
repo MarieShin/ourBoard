@@ -29,8 +29,7 @@
                     <a href='#' class='btn btn-default btn-sm'>
                         <i class='glyphicon glyphicon-edit'></i>
                     </a>
-                    <!--<a href='ajax/comment_delete.jsp?comment_id={{html id}}' data-toggle="modal" data-target="#comment_delete_modal" class='btn btn-danger btn-xs'>-->
-						<a href='#' class='btn btn-default btn-sm'>
+                    <a href='ajax/comment_delete.jsp?comment_id={{html id}}' data-toggle="modal" data-target="#comment_delete_modal" class='btn btn-danger btn-xs'>
                         <i class='glyphicon glyphicon-remove'></i>
                     </a>
                 </div>

@@ -68,7 +68,18 @@
 		WHERE id=#{id} AND
 		writer_pw=password(#{writerPw})
 	</select>
-
+	
+	<!-- 덧글을 수정한다. -->
+	<update id="doEdit" parameterType="BBSComment">
+		UPDATE bbs_comment SET
+			writer_name = #{writerName},
+			email = #{email},
+			content = #{content},
+			ip_address = #{ipAddress},
+			edit_date = now()
+		WHERE id = #{id}
+	</update>
+	
 	<!-- 게시물을 삭제한다. -->
 	<delete id="doDelete" parameterType="int">
 		DELETE FROM bbs_comment WHERE id=#{id}

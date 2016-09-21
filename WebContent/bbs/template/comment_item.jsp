@@ -6,7 +6,18 @@
 <div class="modal fade" id="comment_delete_modal" role="dialog"
 	aria-hidden="true">
 	<div class="modal-dialog modal-sm">
-		<div class="modal-content"></div>
+		<div class="modal-content">
+		<!-- 모달창 내용이 표시될 부분 -->
+		</div>
+	</div>
+</div>
+
+<!-- 덧글 수정 모달 -->
+<div class="modal fade" id="comment_edit_modal" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<!-- 모달창 내용이 표시될 부분 -->
+		</div>
 	</div>
 </div>
 
@@ -26,11 +37,14 @@
                 </div>
                 <!-- 수정,삭제 버튼 -->
                 <div class='pull-right'>
-                    <a href='#' class='btn btn-default btn-sm'>
+                    <a href='ajax/comment_edit.jsp?comment_id={{html id}}'
+					data-toggle="modal" data-target="#comment_edit_modal"
+					 class='btn btn-info btn-xs'>
                         <i class='glyphicon glyphicon-edit'></i>
                     </a>
-                    <!--<a href='ajax/comment_delete.jsp?comment_id={{html id}}' data-toggle="modal" data-target="#comment_delete_modal" class='btn btn-danger btn-xs'>-->
-						<a href='#' class='btn btn-default btn-sm'>
+                    <a href='ajax/comment_delete.jsp?comment_id={{html id}}' 
+						data-toggle="modal" data-target="#comment_delete_modal"
+						 class='btn btn-danger btn-xs'>
                         <i class='glyphicon glyphicon-remove'></i>
                     </a>
                 </div>
@@ -40,3 +54,4 @@
         </div>
     </li>
 </script>
+
